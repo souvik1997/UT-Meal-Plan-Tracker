@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>UT Meal Plan Tracker Widget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>UT Meal Plan Tracker.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>9D0E82BF1D62C2D700EFE42D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D6AD0181D63711D00D307DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

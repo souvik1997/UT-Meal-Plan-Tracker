@@ -14,6 +14,10 @@
 		9D0E82AF1D62C2D700EFE42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D0E82AD1D62C2D700EFE42D /* LaunchScreen.storyboard */; };
 		9D0E82BA1D62C2D700EFE42D /* UT_Meal_Plan_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E82B91D62C2D700EFE42D /* UT_Meal_Plan_TrackerTests.swift */; };
 		9D0E82C51D62C2D700EFE42D /* UT_Meal_Plan_TrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0E82C41D62C2D700EFE42D /* UT_Meal_Plan_TrackerUITests.swift */; };
+		9D6AD01C1D63711D00D307DC /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6AD01B1D63711D00D307DC /* NotificationCenter.framework */; };
+		9D6AD01F1D63711D00D307DC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6AD01E1D63711D00D307DC /* TodayViewController.swift */; };
+		9D6AD0221D63711D00D307DC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD0201D63711D00D307DC /* MainInterface.storyboard */; };
+		9D6AD0261D63711D00D307DC /* UT Meal Plan Tracker Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +35,28 @@
 			remoteGlobalIDString = 9D0E82A01D62C2D700EFE42D;
 			remoteInfo = "UT Meal Plan Tracker";
 		};
+		9D6AD0241D63711D00D307DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D0E82991D62C2D700EFE42D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D6AD0181D63711D00D307DC;
+			remoteInfo = "UT Meal Plan Tracker Widget";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D6AD02A1D63711D00D307DC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9D6AD0261D63711D00D307DC /* UT Meal Plan Tracker Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9D0E82A11D62C2D700EFE42D /* UT Meal Plan Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UT Meal Plan Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +72,11 @@
 		9D0E82C01D62C2D700EFE42D /* UT Meal Plan TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UT Meal Plan TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D0E82C41D62C2D700EFE42D /* UT_Meal_Plan_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UT_Meal_Plan_TrackerUITests.swift; sourceTree = "<group>"; };
 		9D0E82C61D62C2D700EFE42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "UT Meal Plan Tracker Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D6AD01B1D63711D00D307DC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		9D6AD01E1D63711D00D307DC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		9D6AD0211D63711D00D307DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		9D6AD0231D63711D00D307DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +101,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D6AD0161D63711D00D307DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D6AD01C1D63711D00D307DC /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +118,8 @@
 				9D0E82A31D62C2D700EFE42D /* UT Meal Plan Tracker */,
 				9D0E82B81D62C2D700EFE42D /* UT Meal Plan TrackerTests */,
 				9D0E82C31D62C2D700EFE42D /* UT Meal Plan TrackerUITests */,
+				9D6AD01D1D63711D00D307DC /* UT Meal Plan Tracker Widget */,
+				9D6AD01A1D63711D00D307DC /* Frameworks */,
 				9D0E82A21D62C2D700EFE42D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +130,7 @@
 				9D0E82A11D62C2D700EFE42D /* UT Meal Plan Tracker.app */,
 				9D0E82B51D62C2D700EFE42D /* UT Meal Plan TrackerTests.xctest */,
 				9D0E82C01D62C2D700EFE42D /* UT Meal Plan TrackerUITests.xctest */,
+				9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +166,24 @@
 			path = "UT Meal Plan TrackerUITests";
 			sourceTree = "<group>";
 		};
+		9D6AD01A1D63711D00D307DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D6AD01B1D63711D00D307DC /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D6AD01D1D63711D00D307DC /* UT Meal Plan Tracker Widget */ = {
+			isa = PBXGroup;
+			children = (
+				9D6AD01E1D63711D00D307DC /* TodayViewController.swift */,
+				9D6AD0201D63711D00D307DC /* MainInterface.storyboard */,
+				9D6AD0231D63711D00D307DC /* Info.plist */,
+			);
+			path = "UT Meal Plan Tracker Widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +194,12 @@
 				9D0E829D1D62C2D700EFE42D /* Sources */,
 				9D0E829E1D62C2D700EFE42D /* Frameworks */,
 				9D0E829F1D62C2D700EFE42D /* Resources */,
+				9D6AD02A1D63711D00D307DC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9D6AD0251D63711D00D307DC /* PBXTargetDependency */,
 			);
 			name = "UT Meal Plan Tracker";
 			productName = "UT Meal Plan Tracker";
@@ -181,6 +242,23 @@
 			productReference = 9D0E82C01D62C2D700EFE42D /* UT Meal Plan TrackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		9D6AD0181D63711D00D307DC /* UT Meal Plan Tracker Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D6AD0291D63711D00D307DC /* Build configuration list for PBXNativeTarget "UT Meal Plan Tracker Widget" */;
+			buildPhases = (
+				9D6AD0151D63711D00D307DC /* Sources */,
+				9D6AD0161D63711D00D307DC /* Frameworks */,
+				9D6AD0171D63711D00D307DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UT Meal Plan Tracker Widget";
+			productName = "UT Meal Plan Tracker Widget";
+			productReference = 9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,6 +286,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9D0E82A01D62C2D700EFE42D;
 					};
+					9D6AD0181D63711D00D307DC = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = J49BFWP8H6;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 9D0E829C1D62C2D700EFE42D /* Build configuration list for PBXProject "UT Meal Plan Tracker" */;
@@ -226,6 +309,7 @@
 				9D0E82A01D62C2D700EFE42D /* UT Meal Plan Tracker */,
 				9D0E82B41D62C2D700EFE42D /* UT Meal Plan TrackerTests */,
 				9D0E82BF1D62C2D700EFE42D /* UT Meal Plan TrackerUITests */,
+				9D6AD0181D63711D00D307DC /* UT Meal Plan Tracker Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +336,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D6AD0171D63711D00D307DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D6AD0221D63711D00D307DC /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +375,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D6AD0151D63711D00D307DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D6AD01F1D63711D00D307DC /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -295,6 +395,11 @@
 			isa = PBXTargetDependency;
 			target = 9D0E82A01D62C2D700EFE42D /* UT Meal Plan Tracker */;
 			targetProxy = 9D0E82C11D62C2D700EFE42D /* PBXContainerItemProxy */;
+		};
+		9D6AD0251D63711D00D307DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D6AD0181D63711D00D307DC /* UT Meal Plan Tracker Widget */;
+			targetProxy = 9D6AD0241D63711D00D307DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -313,6 +418,14 @@
 				9D0E82AE1D62C2D700EFE42D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9D6AD0201D63711D00D307DC /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D6AD0211D63711D00D307DC /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,6 +525,7 @@
 		9D0E82CA1D62C2D700EFE42D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J49BFWP8H6;
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
@@ -425,6 +539,7 @@
 		9D0E82CB1D62C2D700EFE42D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J49BFWP8H6;
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
@@ -493,6 +608,32 @@
 			};
 			name = Release;
 		};
+		9D6AD0271D63711D00D307DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J49BFWP8H6;
+				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		9D6AD0281D63711D00D307DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = J49BFWP8H6;
+				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -512,6 +653,7 @@
 				9D0E82CB1D62C2D700EFE42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D0E82CC1D62C2D700EFE42D /* Build configuration list for PBXNativeTarget "UT Meal Plan TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -520,12 +662,22 @@
 				9D0E82CE1D62C2D700EFE42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D0E82CF1D62C2D700EFE42D /* Build configuration list for PBXNativeTarget "UT Meal Plan TrackerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D0E82D01D62C2D700EFE42D /* Debug */,
 				9D0E82D11D62C2D700EFE42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D6AD0291D63711D00D307DC /* Build configuration list for PBXNativeTarget "UT Meal Plan Tracker Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D6AD0271D63711D00D307DC /* Debug */,
+				9D6AD0281D63711D00D307DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
