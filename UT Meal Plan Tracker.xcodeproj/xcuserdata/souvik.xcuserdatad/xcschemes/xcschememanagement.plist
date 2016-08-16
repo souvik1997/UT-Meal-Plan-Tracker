@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>UT Meal Plan Tracker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9D0E82A01D62C2D700EFE42D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D0E82B41D62C2D700EFE42D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D0E82BF1D62C2D700EFE42D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
