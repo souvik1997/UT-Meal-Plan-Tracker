@@ -18,6 +18,7 @@
 		9D6AD01F1D63711D00D307DC /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6AD01E1D63711D00D307DC /* TodayViewController.swift */; };
 		9D6AD0221D63711D00D307DC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD0201D63711D00D307DC /* MainInterface.storyboard */; };
 		9D6AD0261D63711D00D307DC /* UT Meal Plan Tracker Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9D6AD02C1D63768500D307DC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD02B1D63768500D307DC /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		9D6AD01E1D63711D00D307DC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		9D6AD0211D63711D00D307DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		9D6AD0231D63711D00D307DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D6AD02B1D63768500D307DC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		9D0E82981D62C2D700EFE42D = {
 			isa = PBXGroup;
 			children = (
+				9D6AD02B1D63768500D307DC /* Settings.bundle */,
 				9D0E82A31D62C2D700EFE42D /* UT Meal Plan Tracker */,
 				9D0E82B81D62C2D700EFE42D /* UT Meal Plan TrackerTests */,
 				9D0E82C31D62C2D700EFE42D /* UT Meal Plan TrackerUITests */,
@@ -319,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D6AD02C1D63768500D307DC /* Settings.bundle in Resources */,
 				9D0E82AF1D62C2D700EFE42D /* LaunchScreen.storyboard in Resources */,
 				9D0E82AC1D62C2D700EFE42D /* Assets.xcassets in Resources */,
 				9D0E82AA1D62C2D700EFE42D /* Main.storyboard in Resources */,
