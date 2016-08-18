@@ -26,6 +26,15 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         self.typeLabel.text = self.name ?? ""
+        if (self.transactions != nil) {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.currency
+            let formattedAmount = formatter.string(from: transactions!.balance as NSNumber)
+            self.balanceLabel.text = formattedAmount
+        } else {
+            self.balanceLabel.text = ""
+        }
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -54,6 +63,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
                 DispatchQueue.main.async(execute: {
                     self.transactions = TransactionParser(data: data)
                     self.tableView.reloadData()
+                    self.viewDidLoad()
                 })
             } else {
                 print("Failed to login!")

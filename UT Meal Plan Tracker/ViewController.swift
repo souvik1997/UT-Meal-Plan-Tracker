@@ -19,18 +19,29 @@ class ViewController: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bounds = UIScreen.main.bounds
+        let width = bounds.width
+        let height = bounds.height
+        scrollView.contentSize = CGSize(width: 2 * width, height: height)
+        
         dineInController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        bevoBucksController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        
+        let controllers = [dineInController, bevoBucksController]
+        for i in 0..<controllers.count {
+            let originX = CGFloat(i) * width
+            self.addChildViewController(controllers[i]!)
+            controllers[i]!.view.frame = CGRect(x: originX, y: CGFloat(0), width: width, height: height)
+            self.scrollView.addSubview(controllers[i]!.view)
+            controllers[i]!.didMove(toParentViewController: self)
+        }
+    
         dineInController!.name = "Dine-in Dollars"
         dineInController!.url = URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")
-        bevoBucksController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        
         bevoBucksController!.name = "Bevo Bucks"
         bevoBucksController!.url = URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")
-        self.addChildViewController(dineInController!)
-        self.addChildViewController(bevoBucksController!)
-        self.scrollView.addSubview(dineInController!.view)
-        self.scrollView.addSubview(bevoBucksController!.view)
-        dineInController!.didMove(toParentViewController: self)
-        bevoBucksController!.didMove(toParentViewController: self)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
