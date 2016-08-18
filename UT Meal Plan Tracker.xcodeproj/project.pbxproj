@@ -21,6 +21,12 @@
 		9D6AD02C1D63768500D307DC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD02B1D63768500D307DC /* Settings.bundle */; };
 		9D7F5B481D65EB33006755E7 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; };
 		9D7F5B491D65EB33006755E7 /* Fuzi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D7F5B4E1D66101C006755E7 /* TransactionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F5B4D1D66101C006755E7 /* TransactionsParser.swift */; };
+		9D7F5B501D661C6D006755E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F5B4F1D661C6D006755E7 /* Utils.swift */; };
+		9D7F5B531D662711006755E7 /* TransactionsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F5B4D1D66101C006755E7 /* TransactionsParser.swift */; };
+		9D7F5B541D662714006755E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F5B4F1D661C6D006755E7 /* Utils.swift */; };
+		9D7F5B551D662718006755E7 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE238241D64AF40003C1F43 /* LoginHandler.swift */; };
+		9D7F5B561D662941006755E7 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; };
 		9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE238241D64AF40003C1F43 /* LoginHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +156,10 @@
 		9D6AD0231D63711D00D307DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6AD02B1D63768500D307DC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fuzi.xcodeproj; path = Fuzi/Fuzi.xcodeproj; sourceTree = "<group>"; };
+		9D7F5B4D1D66101C006755E7 /* TransactionsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsParser.swift; sourceTree = "<group>"; };
+		9D7F5B4F1D661C6D006755E7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9D7F5B511D66252E006755E7 /* UT Meal Plan Tracker Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "UT Meal Plan Tracker Widget.entitlements"; sourceTree = "<group>"; };
+		9D7F5B521D66254D006755E7 /* UT Meal Plan Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "UT Meal Plan Tracker.entitlements"; sourceTree = "<group>"; };
 		9DE238241D64AF40003C1F43 /* LoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7F5B561D662941006755E7 /* Fuzi.framework in Frameworks */,
 				9D6AD01C1D63711D00D307DC /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,9 +226,12 @@
 		9D0E82A31D62C2D700EFE42D /* UT Meal Plan Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				9D7F5B521D66254D006755E7 /* UT Meal Plan Tracker.entitlements */,
 				9D0E82A41D62C2D700EFE42D /* AppDelegate.swift */,
 				9D0E82A61D62C2D700EFE42D /* ViewController.swift */,
 				9DE238241D64AF40003C1F43 /* LoginHandler.swift */,
+				9D7F5B4F1D661C6D006755E7 /* Utils.swift */,
+				9D7F5B4D1D66101C006755E7 /* TransactionsParser.swift */,
 				9D0E82A81D62C2D700EFE42D /* Main.storyboard */,
 				9D0E82AB1D62C2D700EFE42D /* Assets.xcassets */,
 				9D0E82AD1D62C2D700EFE42D /* LaunchScreen.storyboard */,
@@ -255,6 +269,7 @@
 		9D6AD01D1D63711D00D307DC /* UT Meal Plan Tracker Widget */ = {
 			isa = PBXGroup;
 			children = (
+				9D7F5B511D66252E006755E7 /* UT Meal Plan Tracker Widget.entitlements */,
 				9D6AD01E1D63711D00D307DC /* TodayViewController.swift */,
 				9D6AD0201D63711D00D307DC /* MainInterface.storyboard */,
 				9D6AD0231D63711D00D307DC /* Info.plist */,
@@ -367,6 +382,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = J49BFWP8H6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9D0E82B41D62C2D700EFE42D = {
 						CreatedOnToolsVersion = 8.0;
@@ -384,6 +404,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = J49BFWP8H6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -507,7 +532,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7F5B501D661C6D006755E7 /* Utils.swift in Sources */,
 				9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */,
+				9D7F5B4E1D66101C006755E7 /* TransactionsParser.swift in Sources */,
 				9D0E82A71D62C2D700EFE42D /* ViewController.swift in Sources */,
 				9D0E82A51D62C2D700EFE42D /* AppDelegate.swift in Sources */,
 			);
@@ -533,7 +560,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7F5B551D662718006755E7 /* LoginHandler.swift in Sources */,
 				9D6AD01F1D63711D00D307DC /* TodayViewController.swift in Sources */,
+				9D7F5B531D662711006755E7 /* TransactionsParser.swift in Sources */,
+				9D7F5B541D662714006755E7 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +716,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker/UT Meal Plan Tracker.entitlements";
 				DEVELOPMENT_TEAM = J49BFWP8H6;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
@@ -702,6 +733,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker/UT Meal Plan Tracker.entitlements";
 				DEVELOPMENT_TEAM = J49BFWP8H6;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
@@ -774,7 +806,9 @@
 		9D6AD0271D63711D00D307DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker Widget/UT Meal Plan Tracker Widget.entitlements";
 				DEVELOPMENT_TEAM = J49BFWP8H6;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";
@@ -787,7 +821,9 @@
 		9D6AD0281D63711D00D307DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker Widget/UT Meal Plan Tracker Widget.entitlements";
 				DEVELOPMENT_TEAM = J49BFWP8H6;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";

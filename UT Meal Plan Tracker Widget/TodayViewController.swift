@@ -10,7 +10,8 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
@@ -22,6 +23,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void)) {
+        let username = UserDefaults.standard.string(forKey: "uteid_eid")
+        let password = UserDefaults.standard.string(forKey: "uteid_password")
         // Perform any setup necessary in order to update the view.
         
         // If an error is encountered, use NCUpdateResult.Failed
