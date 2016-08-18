@@ -35,10 +35,14 @@ class ViewController: UIViewController, UIWebViewDelegate {
     
     func getData() {
         UserDefaults.standard.synchronize()
+        let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
+        defaults?.synchronize()
         guard let username = UserDefaults.standard.string(forKey: "uteid_eid"), let password = UserDefaults.standard.string(forKey: "uteid_password") else {
             promptForCredentials()
             return
         }
+        defaults?.set(username, forKey: "uteid_eid")
+        defaults?.set(password, forKey: "uteid_password")
         if (username.characters.count == 0 || password.characters.count == 0) {
             promptForCredentials()
             return
