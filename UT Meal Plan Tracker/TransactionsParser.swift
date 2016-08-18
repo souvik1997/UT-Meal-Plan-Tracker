@@ -39,7 +39,7 @@ class TransactionParser {
                 if (headerStr?.contains("Bevo Bucks"))! {
                     self.name = headerStr?.substring(from: (headerStr?.index((headerStr?.startIndex)!, offsetBy: 35))!)
                 } else if (headerStr?.contains("Dine In"))! {
-                    self.name = headerStr?.substring(from: (headerStr?.index((headerStr?.startIndex)!, offsetBy: 37))!)
+                    self.name = headerStr?.substring(from: (headerStr?.index((headerStr?.startIndex)!, offsetBy: 40))!)
                 }
             } else if (i > 1 && splitStr.count == 6) {
                 let date = dateFormatter.date(from: String(splitStr[0]))
