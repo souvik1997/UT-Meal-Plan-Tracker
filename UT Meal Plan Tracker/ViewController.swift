@@ -11,14 +11,32 @@ import UIKit
 class ViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var dineInController: TransactionViewController?
+    var bevoBucksController: TransactionViewController?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.getData), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        dineInController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        dineInController!.name = "Dine-in Dollars"
+        dineInController!.url = URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")
+        bevoBucksController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        bevoBucksController!.name = "Bevo Bucks"
+        bevoBucksController!.url = URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")
+        self.addChildViewController(dineInController!)
+        self.addChildViewController(bevoBucksController!)
+        self.scrollView.addSubview(dineInController!.view)
+        self.scrollView.addSubview(bevoBucksController!.view)
+        dineInController!.didMove(toParentViewController: self)
+        bevoBucksController!.didMove(toParentViewController: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        getData()
+        refresh()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,7 +51,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func getData() {
+    func refresh() {
         UserDefaults.standard.synchronize()
         let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
         defaults?.synchronize()
@@ -48,21 +66,8 @@ class ViewController: UIViewController, UIWebViewDelegate {
             return
         }
         let loginHandler = LoginHandler(eid: username, password: password)
-        loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")!, callback: {(success, data) in
-            if (success) {
-                let t = TransactionParser(data: data)
-                print(t.transactions)
-            } else {
-                print("Failed to login! \(username), \(password)")
-            }
-        })
-        loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")!, callback: {(success, data) in
-            if (success) {
-                let t = TransactionParser(data: data)
-                print(t.transactions)
-                print(t.name)
-            }
-        })
+        self.bevoBucksController!.refresh(loginHandler: loginHandler)
+        self.dineInController!.refresh(loginHandler: loginHandler)
         /* for testing
          let t = TransactionParser(data: "Bevo Bucks Transaction Listing for SOUVIK BANERJEE\n" +
             "Date & Time\tLocation\tPlan\tCredit/Debit\tAmount\tRemaining Balance\n" +

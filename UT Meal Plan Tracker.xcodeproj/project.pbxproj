@@ -27,6 +27,8 @@
 		9D7F5B541D662714006755E7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7F5B4F1D661C6D006755E7 /* Utils.swift */; };
 		9D7F5B551D662718006755E7 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE238241D64AF40003C1F43 /* LoginHandler.swift */; };
 		9D7F5B561D662941006755E7 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; };
+		9DC40CF41D66522E004878A0 /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC40CF31D66522E004878A0 /* TransactionViewController.swift */; };
+		9DC40CFC1D66594F004878A0 /* TransactionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC40CFB1D66594F004878A0 /* TransactionTableCell.swift */; };
 		9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE238241D64AF40003C1F43 /* LoginHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +162,8 @@
 		9D7F5B4F1D661C6D006755E7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9D7F5B511D66252E006755E7 /* UT Meal Plan Tracker Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "UT Meal Plan Tracker Widget.entitlements"; sourceTree = "<group>"; };
 		9D7F5B521D66254D006755E7 /* UT Meal Plan Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "UT Meal Plan Tracker.entitlements"; sourceTree = "<group>"; };
+		9DC40CF31D66522E004878A0 /* TransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		9DC40CFB1D66594F004878A0 /* TransactionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableCell.swift; sourceTree = "<group>"; };
 		9DE238241D64AF40003C1F43 /* LoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +233,8 @@
 				9D7F5B521D66254D006755E7 /* UT Meal Plan Tracker.entitlements */,
 				9D0E82A41D62C2D700EFE42D /* AppDelegate.swift */,
 				9D0E82A61D62C2D700EFE42D /* ViewController.swift */,
+				9DC40CF31D66522E004878A0 /* TransactionViewController.swift */,
+				9DC40CFB1D66594F004878A0 /* TransactionTableCell.swift */,
 				9DE238241D64AF40003C1F43 /* LoginHandler.swift */,
 				9D7F5B4F1D661C6D006755E7 /* Utils.swift */,
 				9D7F5B4D1D66101C006755E7 /* TransactionsParser.swift */,
@@ -533,10 +539,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7F5B501D661C6D006755E7 /* Utils.swift in Sources */,
+				9DC40CF41D66522E004878A0 /* TransactionViewController.swift in Sources */,
 				9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */,
 				9D7F5B4E1D66101C006755E7 /* TransactionsParser.swift in Sources */,
 				9D0E82A71D62C2D700EFE42D /* ViewController.swift in Sources */,
 				9D0E82A51D62C2D700EFE42D /* AppDelegate.swift in Sources */,
+				9DC40CFC1D66594F004878A0 /* TransactionTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

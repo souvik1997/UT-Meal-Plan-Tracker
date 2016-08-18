@@ -21,7 +21,7 @@ class TransactionParser {
     var name: String?
     
     init(data: String) {
-        let lines = data.components(separatedBy: CharacterSet.newlines).filter { $0.characters.count != 0 }
+        let lines = data.components(separatedBy: CharacterSet.newlines)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/dd/yyyy h:mm a"
         dateFormatter.amSymbol = "AM"
