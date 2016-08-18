@@ -19,6 +19,9 @@
 		9D6AD0221D63711D00D307DC /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD0201D63711D00D307DC /* MainInterface.storyboard */; };
 		9D6AD0261D63711D00D307DC /* UT Meal Plan Tracker Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9D6AD0191D63711D00D307DC /* UT Meal Plan Tracker Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9D6AD02C1D63768500D307DC /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D6AD02B1D63768500D307DC /* Settings.bundle */; };
+		9D7F5B481D65EB33006755E7 /* Fuzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; };
+		9D7F5B491D65EB33006755E7 /* Fuzi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7F5B391D65EA04006755E7 /* Fuzi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE238241D64AF40003C1F43 /* LoginHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,62 @@
 			remoteGlobalIDString = 9D6AD0181D63711D00D307DC;
 			remoteInfo = "UT Meal Plan Tracker Widget";
 		};
+		9D7F5B381D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7913917D1B53B09F00BC07C3;
+			remoteInfo = "Fuzi-iOS";
+		};
+		9D7F5B3A1D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 791391871B53B09F00BC07C3;
+			remoteInfo = "Fuzi-iOSTests";
+		};
+		9D7F5B3C1D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 792500AB1BA6CF6B0011671B;
+			remoteInfo = "Fuzi-OSX";
+		};
+		9D7F5B3E1D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 792500B71BA6CFBB0011671B;
+			remoteInfo = "Fuzi-OSXTests";
+		};
+		9D7F5B401D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7932B11C1BA7F25A008CA6F5;
+			remoteInfo = "Fuzi-WatchOS";
+		};
+		9D7F5B421D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7930508F1BD89A3E0040127B;
+			remoteInfo = "Fuzi-tvOS";
+		};
+		9D7F5B441D65EA04006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 793050981BD89A3E0040127B;
+			remoteInfo = "Fuzi-tvOSTests";
+		};
+		9D7F5B4A1D65EB33006755E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7913917C1B53B09F00BC07C3;
+			remoteInfo = "Fuzi-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +114,17 @@
 				9D6AD0261D63711D00D307DC /* UT Meal Plan Tracker Widget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D7F5B4C1D65EB33006755E7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D7F5B491D65EB33006755E7 /* Fuzi.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -79,6 +149,8 @@
 		9D6AD0211D63711D00D307DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		9D6AD0231D63711D00D307DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D6AD02B1D63768500D307DC /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Fuzi.xcodeproj; path = Fuzi/Fuzi.xcodeproj; sourceTree = "<group>"; };
+		9DE238241D64AF40003C1F43 /* LoginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +158,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7F5B481D65EB33006755E7 /* Fuzi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +197,7 @@
 				9D6AD01D1D63711D00D307DC /* UT Meal Plan Tracker Widget */,
 				9D6AD01A1D63711D00D307DC /* Frameworks */,
 				9D0E82A21D62C2D700EFE42D /* Products */,
+				9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +217,7 @@
 			children = (
 				9D0E82A41D62C2D700EFE42D /* AppDelegate.swift */,
 				9D0E82A61D62C2D700EFE42D /* ViewController.swift */,
+				9DE238241D64AF40003C1F43 /* LoginHandler.swift */,
 				9D0E82A81D62C2D700EFE42D /* Main.storyboard */,
 				9D0E82AB1D62C2D700EFE42D /* Assets.xcassets */,
 				9D0E82AD1D62C2D700EFE42D /* LaunchScreen.storyboard */,
@@ -187,6 +262,20 @@
 			path = "UT Meal Plan Tracker Widget";
 			sourceTree = "<group>";
 		};
+		9D7F5B2F1D65EA04006755E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D7F5B391D65EA04006755E7 /* Fuzi.framework */,
+				9D7F5B3B1D65EA04006755E7 /* Fuzi-iOSTests.xctest */,
+				9D7F5B3D1D65EA04006755E7 /* Fuzi.framework */,
+				9D7F5B3F1D65EA04006755E7 /* Fuzi-OSXTests.xctest */,
+				9D7F5B411D65EA04006755E7 /* Fuzi.framework */,
+				9D7F5B431D65EA04006755E7 /* Fuzi.framework */,
+				9D7F5B451D65EA04006755E7 /* Fuzi-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,11 +287,13 @@
 				9D0E829E1D62C2D700EFE42D /* Frameworks */,
 				9D0E829F1D62C2D700EFE42D /* Resources */,
 				9D6AD02A1D63711D00D307DC /* Embed App Extensions */,
+				9D7F5B4C1D65EB33006755E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				9D6AD0251D63711D00D307DC /* PBXTargetDependency */,
+				9D7F5B4B1D65EB33006755E7 /* PBXTargetDependency */,
 			);
 			name = "UT Meal Plan Tracker";
 			productName = "UT Meal Plan Tracker";
@@ -307,6 +398,12 @@
 			mainGroup = 9D0E82981D62C2D700EFE42D;
 			productRefGroup = 9D0E82A21D62C2D700EFE42D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9D7F5B2F1D65EA04006755E7 /* Products */;
+					ProjectRef = 9D7F5B2E1D65EA04006755E7 /* Fuzi.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9D0E82A01D62C2D700EFE42D /* UT Meal Plan Tracker */,
@@ -316,6 +413,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9D7F5B391D65EA04006755E7 /* Fuzi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Fuzi.framework;
+			remoteRef = 9D7F5B381D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B3B1D65EA04006755E7 /* Fuzi-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Fuzi-iOSTests.xctest";
+			remoteRef = 9D7F5B3A1D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B3D1D65EA04006755E7 /* Fuzi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Fuzi.framework;
+			remoteRef = 9D7F5B3C1D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B3F1D65EA04006755E7 /* Fuzi-OSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Fuzi-OSXTests.xctest";
+			remoteRef = 9D7F5B3E1D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B411D65EA04006755E7 /* Fuzi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Fuzi.framework;
+			remoteRef = 9D7F5B401D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B431D65EA04006755E7 /* Fuzi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Fuzi.framework;
+			remoteRef = 9D7F5B421D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9D7F5B451D65EA04006755E7 /* Fuzi-tvOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Fuzi-tvOSTests.xctest";
+			remoteRef = 9D7F5B441D65EA04006755E7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9D0E829F1D62C2D700EFE42D /* Resources */ = {
@@ -358,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE238251D64AF40003C1F43 /* LoginHandler.swift in Sources */,
 				9D0E82A71D62C2D700EFE42D /* ViewController.swift in Sources */,
 				9D0E82A51D62C2D700EFE42D /* AppDelegate.swift in Sources */,
 			);
@@ -404,6 +554,11 @@
 			isa = PBXTargetDependency;
 			target = 9D6AD0181D63711D00D307DC /* UT Meal Plan Tracker Widget */;
 			targetProxy = 9D6AD0241D63711D00D307DC /* PBXContainerItemProxy */;
+		};
+		9D7F5B4B1D65EB33006755E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Fuzi-iOS";
+			targetProxy = 9D7F5B4A1D65EB33006755E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -532,8 +687,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J49BFWP8H6;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -546,8 +703,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J49BFWP8H6;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -684,6 +843,7 @@
 				9D6AD0281D63711D00D307DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

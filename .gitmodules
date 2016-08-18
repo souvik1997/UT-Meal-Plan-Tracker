@@ -1,0 +1,4 @@
+[submodule "Fuzi"]
+	path = Fuzi
+	url = https://github.com/cezheng/Fuzi
+	branch = swift-3
