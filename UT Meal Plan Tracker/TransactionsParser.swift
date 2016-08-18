@@ -21,7 +21,7 @@ class TransactionParser {
     var name: String?
     
     init(data: String) {
-        let lines = data.components(separatedBy: CharacterSet.newlines)
+        let lines = data.components(separatedBy: CharacterSet.newlines).filter { $0.characters.count != 0 }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M/dd/yyyy h:mm a"
         dateFormatter.amSymbol = "AM"
@@ -31,7 +31,7 @@ class TransactionParser {
         numberFormatter.generatesDecimalNumbers = true
         
         self.transactions = []
-        for i in 0 ..< lines.count {
+        for i in 0 ..< min(lines.count, 21) {
             let line = lines[i]
             let splitStr = line.characters.split(separator: "\t")
             if (i == 0) { // header
