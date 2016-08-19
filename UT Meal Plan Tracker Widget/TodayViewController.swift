@@ -16,11 +16,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var dineInDollarsBalanceLabel: UILabel!
     @IBOutlet weak var bevoBucksBalanceLabel: UILabel!
     @IBOutlet weak var credentialPromptLabel: UILabel!
- 
     let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (defaults == nil) {
+            self.promptForCredentials(msg: "Enter Credentials In Settings")
+            return
+        }
+        let username = defaults?.string(forKey: "uteid_eid")
+        let password = defaults?.string(forKey: "uteid_eid")
+        if (username == nil || username?.characters.count == 0 || password == nil || password?.characters.count == 0) {
+            self.promptForCredentials(msg: "Enter Credentials In Settings")
+            return
+        }
+        hidePrompt()
         bevoBucksBalanceLabel.text = defaults?.string(forKey: "cachedBevoBucksBalance") ?? "--"
         dineInDollarsBalanceLabel.text = defaults?.string(forKey: "cachedDineInBalance") ?? "--"
         // Do any additional setup after loading the view from its nib.
