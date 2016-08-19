@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9D0E82A01D62C2D700EFE42D"
-               BuildableName = "UT Meal Plan Tracker.app"
+               BuildableName = "UT Meals.app"
                BlueprintName = "UT Meal Plan Tracker"
                ReferencedContainer = "container:UT Meal Plan Tracker.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D0E82A01D62C2D700EFE42D"
-            BuildableName = "UT Meal Plan Tracker.app"
+            BuildableName = "UT Meals.app"
             BlueprintName = "UT Meal Plan Tracker"
             ReferencedContainer = "container:UT Meal Plan Tracker.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D0E82A01D62C2D700EFE42D"
-            BuildableName = "UT Meal Plan Tracker.app"
+            BuildableName = "UT Meals.app"
             BlueprintName = "UT Meal Plan Tracker"
             ReferencedContainer = "container:UT Meal Plan Tracker.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D0E82A01D62C2D700EFE42D"
-            BuildableName = "UT Meal Plan Tracker.app"
+            BuildableName = "UT Meals.app"
             BlueprintName = "UT Meal Plan Tracker"
             ReferencedContainer = "container:UT Meal Plan Tracker.xcodeproj">
          </BuildableReference>
