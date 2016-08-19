@@ -23,7 +23,8 @@ class TransactionParser {
     init(data: String) {
         let lines = data.components(separatedBy: CharacterSet.newlines).filter { $0.characters.count != 0 }
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/dd/yyyy h:mm a"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "M/d/yyyy h:mm a"
         dateFormatter.amSymbol = "AM"
         dateFormatter.pmSymbol = "PM"
         dateFormatter.timeZone = TimeZone(abbreviation: "CDT")
@@ -42,7 +43,8 @@ class TransactionParser {
                     self.name = headerStr?.substring(from: (headerStr?.index((headerStr?.startIndex)!, offsetBy: 40))!)
                 }
             } else if (i > 1 && splitStr.count == 6) {
-                let date = dateFormatter.date(from: String(splitStr[0]))
+                let dateStr = String(splitStr[0]).trim()
+                let date = dateFormatter.date(from: dateStr)
                 let location = String(splitStr[1])
                 let cleanAmountStr = String(splitStr[4].dropFirst()).removeSpaces()
                 let cleanRemainingStr = String(splitStr[5].dropFirst()).removeSpaces()
