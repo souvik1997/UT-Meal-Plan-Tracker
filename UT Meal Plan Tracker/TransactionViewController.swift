@@ -15,6 +15,8 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var chart: Chart!
+    
     var transactions: TransactionParser?
     public var url: URL?
     public var name: String?
@@ -31,7 +33,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             self.balanceLabel.text = ""
         }
-        
+        self.updateChart()
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -49,6 +51,41 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (transactions?.transactions.count) ?? 0
+    }
+    
+    func updateChart() {
+        guard let transactions = self.transactions, let initialDate = transactions.transactions.first?.date, let finalDate = transactions.transactions.last?.date else {
+            chart.series = []
+            chart.setNeedsDisplay()
+            return
+        }
+        var data: Array<(x: Float, y: Float)> = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM YYYY"
+        for i in 0..<transactions.transactions.count {
+            let transaction = transactions.transactions[i]
+            guard let transactionDate = transaction.date, let transactionRemaining = transaction.remaining else {
+                continue
+            }
+            let timeInterval = transactionDate.timeIntervalSince(initialDate) as Double
+            let remaining = transactionRemaining as NSNumber
+            data.append((x: Float(timeInterval), y: Float(remaining)))
+        }
+        let series = ChartSeries(data: data)
+        series.area = true
+        let halfwayDate = initialDate.addingTimeInterval(finalDate.timeIntervalSince(initialDate) / 2)
+        chart.xLabels = [0, Float(finalDate.timeIntervalSince(initialDate) / 2), Float(finalDate.timeIntervalSince(initialDate))]
+        chart.xLabelsFormatter = { (index, _) in
+            if (index == 0) {
+                return dateFormatter.string(from: initialDate)
+            } else if (index == 1) {
+                return dateFormatter.string(from: halfwayDate)
+            } else {
+                return dateFormatter.string(from: finalDate)
+            }
+        }
+        chart.series = [ChartSeries(data: data)]
+        chart.setNeedsDisplay()
     }
     
     func refresh(loginHandler: LoginHandler?) {

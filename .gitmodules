@@ -2,3 +2,6 @@
 	path = Fuzi
 	url = https://github.com/cezheng/Fuzi
 	branch = swift-3
+[submodule "SwiftChart"]
+	path = SwiftChart
+	url = git@github.com:souvik1997/SwiftChart.git
