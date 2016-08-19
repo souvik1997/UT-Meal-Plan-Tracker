@@ -19,7 +19,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        bevoBucksBalanceLabel.text = "--"
+        dineInDollarsBalanceLabel.text = "--"
         // Do any additional setup after loading the view from its nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        widgetPerformUpdate(completionHandler: {(junk) in })
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,20 +65,28 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")!, callback: {(success, data) in
             if (success) {
                 let t = TransactionParser(data: data)
-                self.bevoBucksBalanceLabel.text = "$\(t.balance)"
+                DispatchQueue.main.async(execute: {
+                    self.bevoBucksBalanceLabel.text = t.balance.toCurrencyString()
+                })
                 loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")!, callback: {(success, data) in
                     if (success) {
                         let t = TransactionParser(data: data)
-                        self.dineInDollarsBalanceLabel.text = "$\(t.balance)"
-                        self.hidePrompt()
-                        completionHandler(NCUpdateResult.newData)
+                        DispatchQueue.main.async(execute: {
+                            self.dineInDollarsBalanceLabel.text = t.balance.toCurrencyString()
+                            self.hidePrompt()
+                            completionHandler(NCUpdateResult.newData)
+                        })
                     } else {
-                        completionHandler(NCUpdateResult.failed)
+                        DispatchQueue.main.async(execute: {
+                            completionHandler(NCUpdateResult.failed)
+                        })
                     }
                 })
             } else {
                 print("Failed to login! \(username), \(password)")
-                completionHandler(NCUpdateResult.failed)
+                DispatchQueue.main.async(execute: {
+                    completionHandler(NCUpdateResult.failed)
+                })
             }
             
         })

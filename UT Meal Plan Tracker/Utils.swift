@@ -17,3 +17,11 @@ extension String {
         return self.replacingOccurrences(of: " ", with: "")
     }
 }
+
+extension Decimal {
+    func toCurrencyString() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.currency
+        return formatter.string(from: self as NSNumber)!
+    }
+}

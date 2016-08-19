@@ -27,10 +27,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         self.typeLabel.text = self.name ?? ""
         if (self.transactions != nil) {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = NumberFormatter.Style.currency
-            let formattedAmount = formatter.string(from: transactions!.balance as NSNumber)
-            self.balanceLabel.text = formattedAmount
+            self.balanceLabel.text = self.transactions?.balance.toCurrencyString()
         } else {
             self.balanceLabel.text = ""
         }

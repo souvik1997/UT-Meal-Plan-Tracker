@@ -18,17 +18,14 @@ class TransactionTableCell: UITableViewCell {
     
     
     func reload(transaction: Transaction) {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.currency
-        if (transaction.remaining != nil) {
-            let formattedAmount = formatter.string(from: transaction.amount! as NSNumber)
-            balanceLabel.text = "\(formattedAmount!)"
+        if (transaction.amount != nil) {
+            balanceLabel.text = transaction.amount?.toCurrencyString()
         }
         else {
             balanceLabel.text = "Error"
         }
         if (transaction.location != nil) {
-            locationLabel.text = "\(transaction.location!)"
+            locationLabel.text = transaction.location!
         }
         else {
             locationLabel.text = "Error"
