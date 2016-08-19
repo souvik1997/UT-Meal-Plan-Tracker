@@ -17,10 +17,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var bevoBucksBalanceLabel: UILabel!
     @IBOutlet weak var credentialPromptLabel: UILabel!
  
+    let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        bevoBucksBalanceLabel.text = "--"
-        dineInDollarsBalanceLabel.text = "--"
+        bevoBucksBalanceLabel.text = defaults?.string(forKey: "cachedBevoBucksBalance") ?? "--"
+        dineInDollarsBalanceLabel.text = defaults?.string(forKey: "cachedDineInBalance") ?? "--"
         // Do any additional setup after loading the view from its nib.
     }
     
@@ -52,7 +54,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void)) {
-        let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
         guard let username = defaults?.string(forKey: "uteid_eid"), let password = defaults?.string(forKey: "uteid_password") else {
             self.promptForCredentials(msg: "Enter Credentials In Settings (1)")
             return
@@ -67,12 +68,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 let t = TransactionParser(data: data)
                 DispatchQueue.main.async(execute: {
                     self.bevoBucksBalanceLabel.text = t.balance.toCurrencyString()
+                    self.defaults?.set(self.bevoBucksBalanceLabel.text, forKey: "cachedBevoBucksBalance")
                 })
                 loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")!, callback: {(success, data) in
                     if (success) {
                         let t = TransactionParser(data: data)
                         DispatchQueue.main.async(execute: {
                             self.dineInDollarsBalanceLabel.text = t.balance.toCurrencyString()
+                            self.defaults?.set(self.dineInDollarsBalanceLabel.text, forKey: "cachedDineInBalance")
                             self.hidePrompt()
                             completionHandler(NCUpdateResult.newData)
                         })
