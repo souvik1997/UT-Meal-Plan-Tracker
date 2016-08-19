@@ -8,9 +8,11 @@
 	<array>
 		<dict>
 			<key>Type</key>
-			<string>PSGroupSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Login Information</string>
+			<string></string>
+			<key>Key</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -47,6 +49,20 @@
 			<string>None</string>
 			<key>AutocorrectionType</key>
 			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Acknowledgements</string>
+			<key>File</key>
+			<string>Acknowledgements</string>
 		</dict>
 	</array>
 </dict>
