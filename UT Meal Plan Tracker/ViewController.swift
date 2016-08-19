@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
-    @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var pageControl: UIPageControl!
     var dineInController: TransactionViewController?
     var bevoBucksController: TransactionViewController?
     
@@ -22,6 +21,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
         let bounds = UIScreen.main.bounds
         let width = bounds.width
         let height = bounds.height
+        scrollView.delegate = self
         scrollView.contentSize = CGSize(width: 2 * width, height: height)
         
         dineInController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
@@ -46,6 +46,12 @@ class ViewController: UIViewController, UIWebViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.size.width
+        let fractionalPage = scrollView.contentOffset.x / pageWidth
+        let page = round(fractionalPage)
+        self.pageControl.currentPage = Int(page)
+    }
     override func viewDidAppear(_ animated: Bool) {
         refresh()
     }

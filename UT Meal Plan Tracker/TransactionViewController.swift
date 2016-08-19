@@ -44,6 +44,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         guard let transactions = self.transactions, row <= transactions.transactions.count else {
             return cell
         }
+        cell.backgroundColor = UIColor.clear
         cell.reload(transaction: transactions.transactions[row])
         return cell
         
@@ -73,6 +74,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         }
         let series = ChartSeries(data: data)
         series.area = true
+        series.color = UIColor.white
         let halfwayDate = initialDate.addingTimeInterval(finalDate.timeIntervalSince(initialDate) / 2)
         chart.xLabels = [0, Float(finalDate.timeIntervalSince(initialDate) / 2), Float(finalDate.timeIntervalSince(initialDate))]
         chart.xLabelsFormatter = { (index, _) in
@@ -84,7 +86,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
                 return dateFormatter.string(from: finalDate)
             }
         }
-        chart.series = [ChartSeries(data: data)]
+        chart.series = [series]
         chart.setNeedsDisplay()
     }
     
