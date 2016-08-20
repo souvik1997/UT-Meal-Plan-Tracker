@@ -92,8 +92,25 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             return
         }
         let loginHandler = LoginHandler(eid: username, password: password)
-        self.bevoBucksController!.refresh(loginHandler: loginHandler)
-        self.dineInController!.refresh(loginHandler: loginHandler)
+        loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/utdirect/index.WBX")!, callback: {(result, data) in
+            if (result == LoginResult.Success) {
+                self.bevoBucksController!.refresh(loginHandler: loginHandler)
+                self.dineInController!.refresh(loginHandler: loginHandler)
+            } else if (result == LoginResult.IncorrectCredentials) {
+                let alert = UIAlertController(title: "Incorrect Login Credentials", message: "Enter your EID and password in Settings", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Open Settings", style: UIAlertActionStyle.default, handler: { (action) in
+                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            } else if (result == LoginResult.NetworkError) {
+                let alert = UIAlertController(title: "Network Error", message: "You need to be connected to the network", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            } else if (result == LoginResult.UTWebsiteError) {
+                let alert = UIAlertController(title: "UT Website Error", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            }
+        })
+        
         /* for testing
          let t = TransactionParser(data: "Bevo Bucks Transaction Listing for SOUVIK BANERJEE\n" +
             "Date & Time\tLocation\tPlan\tCredit/Debit\tAmount\tRemaining Balance\n" +
