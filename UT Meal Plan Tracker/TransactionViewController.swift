@@ -16,6 +16,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var chart: Chart!
+    let refreshControl = UIRefreshControl()
     
     var transactions: TransactionParser?
     public var url: URL?
@@ -27,6 +28,17 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     override func viewDidLoad() {
+        refreshView()
+        
+        self.refreshControl.addTarget(self, action: #selector(TransactionViewController.refreshControlPulled), for: UIControlEvents.valueChanged)
+        self.tableView.delegate = self
+        self.tableView.addSubview(self.refreshControl)
+        self.tableView.dataSource = self
+    }
+    
+    func refreshView() {
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
         self.typeLabel.text = self.name ?? ""
         if (self.transactions != nil) {
             self.balanceLabel.text = self.transactions?.balance.toCurrencyString()
@@ -34,8 +46,6 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             self.balanceLabel.text = ""
         }
         self.updateChart()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,6 +62,15 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (transactions?.transactions.count) ?? 0
+    }
+    
+    func refreshControlPulled() {
+        UserDefaults.standard.synchronize()
+        guard let username = UserDefaults.standard.string(forKey: "uteid_eid"), let password = UserDefaults.standard.string(forKey: "uteid_password") else {
+            return
+        }
+        let loginHandler = LoginHandler(eid: username, password: password)
+        self.refresh(loginHandler: loginHandler)
     }
     
     func updateChart() {
@@ -98,8 +117,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
             if (result == LoginResult.Success) {
                 DispatchQueue.main.async(execute: {
                     self.transactions = TransactionParser(data: data)
-                    self.tableView.reloadData()
-                    self.viewDidLoad()
+                    self.refreshView()
                 })
             } else {
                 print("Failed to login!")
