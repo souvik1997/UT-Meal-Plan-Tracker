@@ -74,14 +74,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
         let loginHandler = LoginHandler(eid: username, password: password)
         loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")!, callback: {(success, data) in
-            if (success) {
+            if (success == LoginResult.Success) {
                 let t = TransactionParser(data: data)
                 DispatchQueue.main.async(execute: {
                     self.bevoBucksBalanceLabel.text = t.balance.toCurrencyString()
                     self.defaults?.set(self.bevoBucksBalanceLabel.text, forKey: "cachedBevoBucksBalance")
                 })
                 loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")!, callback: {(success, data) in
-                    if (success) {
+                    if (success == LoginResult.Success) {
                         let t = TransactionParser(data: data)
                         DispatchQueue.main.async(execute: {
                             self.dineInDollarsBalanceLabel.text = t.balance.toCurrencyString()

@@ -9,6 +9,12 @@
 import Foundation
 import Fuzi
 
+enum LoginResult {
+    case Success
+    case IncorrectCredentials
+    case NetworkError
+    case UTWebsiteError
+}
 
 class LoginHandler: NSObject{
 
@@ -25,32 +31,36 @@ class LoginHandler: NSObject{
         return string.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
     }
     
-    func authGet(url: URL, callback: @escaping (Bool, String) -> Void) {
+    func authGet(url: URL, callback: @escaping (LoginResult, String) -> Void) {
         func route(data: Data?, response: URLResponse?, error: Error?) {
-            let htmlResponse = String(data: data!, encoding: String.Encoding.utf8)
-            if (htmlResponse?.contains("UT EID Login"))! {
-                submitCredentials()
-            } else if (htmlResponse?.contains("Submit LARES data"))! {
-                do {
-                    let document = try HTMLDocument(string: htmlResponse!)
-                    let matchedElements = document.xpath("/html/body/form/input")
-                    if (matchedElements.count == 0) {
-                        callback(false, htmlResponse!)
-                    }
-                    submitLARESData(data: matchedElements.first!["value"]!)
-                } catch let error {
-                    print(error)
-                    callback(false, htmlResponse!)
-                }
-            } else if (response?.url == url) {
-                callback(true, htmlResponse!)
-            } else if (htmlResponse?.contains("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=utdirect/index.WBX\">"))! {
-                URLSession.shared.dataTask(with: url) { (data, response, error) in route(data: data, response: response, error: error)
-                }.resume()
-            } else if (htmlResponse?.contains("Invalid UTLogin Credentials"))! {
-                callback(false, htmlResponse!)
+            if (error != nil) {
+                callback(LoginResult.NetworkError, "")
             } else {
-                callback(false, htmlResponse != nil ? htmlResponse! : "")
+                let htmlResponse = String(data: data!, encoding: String.Encoding.utf8)
+                if (htmlResponse?.contains("UT EID Login"))! {
+                    submitCredentials()
+                } else if (htmlResponse?.contains("Submit LARES data"))! {
+                    do {
+                        let document = try HTMLDocument(string: htmlResponse!)
+                        let matchedElements = document.xpath("/html/body/form/input")
+                        if (matchedElements.count == 0) {
+                            callback(LoginResult.UTWebsiteError, htmlResponse!)
+                        }
+                        submitLARESData(data: matchedElements.first!["value"]!)
+                    } catch let error {
+                        print(error)
+                        callback(LoginResult.UTWebsiteError, htmlResponse!)
+                    }
+                } else if (response?.url == url) {
+                    callback(LoginResult.Success, htmlResponse!)
+                } else if (htmlResponse?.contains("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=utdirect/index.WBX\">"))! {
+                    URLSession.shared.dataTask(with: url) { (data, response, error) in route(data: data, response: response, error: error)
+                    }.resume()
+                } else if (htmlResponse?.contains("Invalid UTLogin Credentials"))! {
+                    callback(LoginResult.IncorrectCredentials, htmlResponse!)
+                } else {
+                    callback(LoginResult.UTWebsiteError, htmlResponse != nil ? htmlResponse! : "")
+                }
             }
         }
         

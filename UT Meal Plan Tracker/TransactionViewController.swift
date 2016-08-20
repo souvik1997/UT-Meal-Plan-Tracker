@@ -94,8 +94,8 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         guard let url = self.url, let loginHandler = loginHandler else {
             return
         }
-        loginHandler.authGet(url: url, callback: {(success, data) in
-            if (success) {
+        loginHandler.authGet(url: url, callback: {(result, data) in
+            if (result == LoginResult.Success) {
                 DispatchQueue.main.async(execute: {
                     self.transactions = TransactionParser(data: data)
                     self.tableView.reloadData()
