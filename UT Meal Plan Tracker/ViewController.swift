@@ -43,6 +43,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         bevoBucksController!.url = URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.logout), name: UserDefaults.didChangeNotification, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -58,6 +59,14 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func logout() {
+        // clear cookies
+        let cookieStore = HTTPCookieStorage.shared
+        for cookie in cookieStore.cookies ?? [] {
+            cookieStore.deleteCookie(cookie)
+        }
     }
     
     func promptForCredentials() {
