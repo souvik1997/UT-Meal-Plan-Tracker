@@ -29,7 +29,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         refreshView()
-        
+        refreshControl.tintColor = UIColor.white
         self.refreshControl.addTarget(self, action: #selector(TransactionViewController.refreshControlPulled), for: UIControlEvents.valueChanged)
         self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
