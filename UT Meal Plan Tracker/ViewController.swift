@@ -72,7 +72,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     func promptForCredentials() {
         let alert = UIAlertController(title: "Enter Login Credentials In Settings", message: "Enter your EID and password in Settings", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Open Settings", style: UIAlertActionStyle.default, handler: { (action) in
-            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+            } else {
+                UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+            }
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -99,7 +103,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             } else if (result == LoginResult.IncorrectCredentials) {
                 let alert = UIAlertController(title: "Incorrect Login Credentials", message: "Enter your EID and password in Settings", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Open Settings", style: UIAlertActionStyle.default, handler: { (action) in
-                    UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+                    } else {
+                        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                    }
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if (result == LoginResult.NetworkError) {
