@@ -74,7 +74,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func updateChart() {
-        guard let transactions = self.transactions, let initialDate = transactions.transactions.first?.date, let finalDate = transactions.transactions.last?.date else {
+        guard let transactions = self.transactions, let finalDate = transactions.transactions.first?.date, let initialDate = transactions.transactions.last?.date else {
             chart.series = []
             chart.setNeedsDisplay()
             return
@@ -95,14 +95,12 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         series.area = true
         series.color = UIColor.white
         let halfwayDate = initialDate.addingTimeInterval(finalDate.timeIntervalSince(initialDate) / 2)
-        chart.xLabels = [0, Float(finalDate.timeIntervalSince(initialDate) / 2), Float(finalDate.timeIntervalSince(initialDate))]
+        chart.xLabels = [0, Float(finalDate.timeIntervalSince(initialDate) / 2)]
         chart.xLabelsFormatter = { (index, _) in
             if (index == 0) {
                 return dateFormatter.string(from: initialDate)
-            } else if (index == 1) {
-                return dateFormatter.string(from: halfwayDate)
             } else {
-                return dateFormatter.string(from: finalDate)
+                return dateFormatter.string(from: halfwayDate)
             }
         }
         chart.series = [series]
