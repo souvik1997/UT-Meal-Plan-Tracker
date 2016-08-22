@@ -111,11 +111,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else if (result == LoginResult.NetworkError) {
-                let alert = UIAlertController(title: "Network Error", message: "You need to be connected to the network", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Network Error", message: "UT's servers may be down; please try again later", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             } else if (result == LoginResult.UTWebsiteError) {
                 let alert = UIAlertController(title: "UT Website Error", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         })
     }

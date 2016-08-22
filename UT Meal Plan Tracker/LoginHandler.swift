@@ -20,6 +20,7 @@ class LoginHandler: NSObject{
 
     var eid: String
     var password: String
+    let timeout = 20
 
     init(eid: String, password: String) {
         self.eid = eid
@@ -34,6 +35,7 @@ class LoginHandler: NSObject{
     func authGet(url: URL, callback: @escaping (LoginResult, String) -> Void) {
         var req = URLRequest(url: url)
         req.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
+        req.timeoutInterval = timeout
         func route(data: Data?, response: URLResponse?, error: Error?) {
             if (error != nil) {
                 callback(LoginResult.NetworkError, "")
@@ -49,7 +51,7 @@ class LoginHandler: NSObject{
                             callback(LoginResult.UTWebsiteError, htmlResponse!)
                         }
                         submitLARESData(data: matchedElements.first!["value"]!)
-                    } catch let error {
+                    } catch {
                         callback(LoginResult.UTWebsiteError, htmlResponse!)
                     }
                 } else if (response?.url == url) {
@@ -70,6 +72,7 @@ class LoginHandler: NSObject{
             urlReq.httpMethod = "POST"
             let loginStr = "IDToken1=\(self.eid)&IDToken2=\(self.password)&login_uri=/login/cdcservlet&login_method=GET&IDButton=Log In&goto=\(url.absoluteURL)&encoded=false&gx_charset=UTF-8"
             urlReq.httpBody = loginStr.data(using: String.Encoding.utf8)
+            urlReq.timeoutInterval = timeout
             URLSession.shared.dataTask(with: urlReq) {(data, response, error) in route(data: data, response: response, error: error) }.resume()
         }
         
@@ -78,6 +81,7 @@ class LoginHandler: NSObject{
             urlReq.httpMethod = "POST"
             let escapedStr = "LARES="+self.urlencode(string: "\(data)")
             urlReq.httpBody = escapedStr.data(using: String.Encoding.utf8)
+            urlReq.timeoutInterval = timeout
             URLSession.shared.dataTask(with: urlReq) {(data, response, error) in route(data: data, response: response, error: error) }.resume()
         }
         URLSession.shared.dataTask(with: req) { (data, response, error) in route(data: data, response: response, error: error)
