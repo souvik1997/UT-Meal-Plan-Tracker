@@ -32,6 +32,8 @@ class LoginHandler: NSObject{
     }
     
     func authGet(url: URL, callback: @escaping (LoginResult, String) -> Void) {
+        var req = URLRequest(url: url)
+        req.cachePolicy = URLRequest.CachePolicy.reloadIgnoringCacheData
         func route(data: Data?, response: URLResponse?, error: Error?) {
             if (error != nil) {
                 callback(LoginResult.NetworkError, "")
@@ -54,7 +56,7 @@ class LoginHandler: NSObject{
                 } else if (response?.url == url) {
                     callback(LoginResult.Success, htmlResponse!)
                 } else if (htmlResponse?.contains("<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=utdirect/index.WBX\">"))! {
-                    URLSession.shared.dataTask(with: url) { (data, response, error) in route(data: data, response: response, error: error)
+                    URLSession.shared.dataTask(with: req) { (data, response, error) in route(data: data, response: response, error: error)
                     }.resume()
                 } else if (htmlResponse?.contains("Invalid UTLogin Credentials"))! {
                     callback(LoginResult.IncorrectCredentials, htmlResponse!)
@@ -81,7 +83,7 @@ class LoginHandler: NSObject{
             urlReq.httpBody = escapedStr.data(using: String.Encoding.utf8)
             URLSession.shared.dataTask(with: urlReq) {(data, response, error) in route(data: data, response: response, error: error) }.resume()
         }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in route(data: data, response: response, error: error)
+        URLSession.shared.dataTask(with: req) { (data, response, error) in route(data: data, response: response, error: error)
         }.resume()
         
     }
