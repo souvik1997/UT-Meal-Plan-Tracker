@@ -20,7 +20,7 @@ class LoginHandler: NSObject{
 
     var eid: String
     var password: String
-    let timeout: TimeInterval = 20
+    let timeout: TimeInterval = 50
 
     init(eid: String, password: String) {
         self.eid = eid
