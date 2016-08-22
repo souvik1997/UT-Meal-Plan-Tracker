@@ -50,7 +50,6 @@ class LoginHandler: NSObject{
                         }
                         submitLARESData(data: matchedElements.first!["value"]!)
                     } catch let error {
-                        print(error)
                         callback(LoginResult.UTWebsiteError, htmlResponse!)
                     }
                 } else if (response?.url == url) {
@@ -70,7 +69,6 @@ class LoginHandler: NSObject{
             var urlReq = URLRequest(url: URL(string: "https://login.utexas.edu/login/UI/Login")!)
             urlReq.httpMethod = "POST"
             let loginStr = "IDToken1=\(self.eid)&IDToken2=\(self.password)&login_uri=/login/cdcservlet&login_method=GET&IDButton=Log In&goto=\(url.absoluteURL)&encoded=false&gx_charset=UTF-8"
-            print("loginStr " + loginStr)
             urlReq.httpBody = loginStr.data(using: String.Encoding.utf8)
             URLSession.shared.dataTask(with: urlReq) {(data, response, error) in route(data: data, response: response, error: error) }.resume()
         }
@@ -79,7 +77,6 @@ class LoginHandler: NSObject{
             var urlReq = URLRequest(url: URL(string: "https://utdirect.utexas.edu:443/")!)
             urlReq.httpMethod = "POST"
             let escapedStr = "LARES="+self.urlencode(string: "\(data)")
-            print(escapedStr)
             urlReq.httpBody = escapedStr.data(using: String.Encoding.utf8)
             URLSession.shared.dataTask(with: urlReq) {(data, response, error) in route(data: data, response: response, error: error) }.resume()
         }

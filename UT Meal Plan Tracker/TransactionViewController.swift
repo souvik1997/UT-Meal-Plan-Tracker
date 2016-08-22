@@ -118,7 +118,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
                     self.refreshView()
                 })
             } else {
-                print("Failed to login!")
+                NSLog("Failed to login!")
             }
         })
         

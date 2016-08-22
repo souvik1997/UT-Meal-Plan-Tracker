@@ -118,15 +118,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             }
         })
-        
-        /* for testing
-         let t = TransactionParser(data: "Bevo Bucks Transaction Listing for SOUVIK BANERJEE\n" +
-            "Date & Time\tLocation\tPlan\tCredit/Debit\tAmount\tRemaining Balance\n" +
-            "8/10/2016  9:13 AM\tAdditions/Adjustments\tBevo Bucks\tCredit\t$   +300.00\t$   301.85\n" +
-            "5/09/2016 12:25 PM\tCarother Laundry Dryer\tBevo Bucks\tDebit\t$ -      1.00\t$     1.85\n" +
-            "5/09/2016 11:46 AM\tCarothers Laundry washe\tBevo Bucks\tDebit\t$ -      1.00\t$     2.85\n" +
-            "5/09/2016 11:46 AM\tCarothers Laundry washe\tBevo Bucks\tDebit\t$ -      1.00\t$     3.85\n")
-        print(t.transactions)*/
     }
     
     
