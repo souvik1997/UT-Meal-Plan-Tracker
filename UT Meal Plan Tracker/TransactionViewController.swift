@@ -11,6 +11,7 @@ import UIKit
 
 class TransactionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var noDataAvailableView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var balanceLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -38,6 +39,13 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
     
     func refreshView() {
         self.tableView.reloadData()
+        if (self.transactions?.transactions.count == 0) {
+            self.tableView.backgroundView = self.noDataAvailableView
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        } else {
+            self.tableView.backgroundView = nil
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        }
         self.refreshControl.endRefreshing()
         self.typeLabel.text = self.name ?? ""
         if (self.transactions != nil) {

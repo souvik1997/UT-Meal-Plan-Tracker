@@ -56,7 +56,11 @@ class TransactionParser {
                 self.transactions.append(transaction)
             }
         }
-        self.balance = self.transactions[0].remaining ?? 0
+        if self.transactions.count > 0 {
+            self.balance = self.transactions[0].remaining ?? 0
+        } else {
+            self.balance = 0
+        }
     }
     
     private func trim(string: String) -> String {
