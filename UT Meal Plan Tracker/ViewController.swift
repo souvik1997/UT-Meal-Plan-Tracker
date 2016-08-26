@@ -14,37 +14,40 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     var dineInController: TransactionViewController?
     var bevoBucksController: TransactionViewController?
+    var controllers: [TransactionViewController?] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let bounds = UIScreen.main.bounds
+        
+        dineInController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        bevoBucksController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        dineInController!.name = "Dine-in Dollars"
+        dineInController!.url = URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")
+        bevoBucksController!.name = "Bevo Bucks"
+        bevoBucksController!.url = URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")
+        controllers = [dineInController, bevoBucksController]
+        for i in 0..<controllers.count {
+            self.addChildViewController(controllers[i]!)
+            controllers[i]!.didMove(toParentViewController: self)
+            self.scrollView.addSubview(controllers[i]!.view)
+        }
+        self.viewWillLayoutSubviews()
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.logout), name: UserDefaults.didChangeNotification, object: nil)
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        let bounds = UIScreen.main.applicationFrame
         let width = bounds.width
         let height = bounds.height
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width: 2 * width, height: height)
-        
-        dineInController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
-        bevoBucksController = storyboard?.instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
-        
-        let controllers = [dineInController, bevoBucksController]
         for i in 0..<controllers.count {
             let originX = CGFloat(i) * width
-            self.addChildViewController(controllers[i]!)
             controllers[i]!.view.frame = CGRect(x: originX, y: CGFloat(0), width: width, height: height)
-            self.scrollView.addSubview(controllers[i]!.view)
-            controllers[i]!.didMove(toParentViewController: self)
         }
-    
-        dineInController!.name = "Dine-in Dollars"
-        dineInController!.url = URL(string: "https://utdirect.utexas.edu/hfis/transDwnld.WBY")
-        
-        bevoBucksController!.name = "Bevo Bucks"
-        bevoBucksController!.url = URL(string: "https://utdirect.utexas.edu/bevobucks/bevoDwnld.WBY")
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.logout), name: UserDefaults.didChangeNotification, object: nil)
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
