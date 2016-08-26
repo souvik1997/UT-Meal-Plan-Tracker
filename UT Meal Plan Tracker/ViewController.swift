@@ -100,28 +100,30 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         let loginHandler = LoginHandler(eid: username, password: password)
         loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/utdirect/index.WBX")!, callback: {(result, data) in
-            if (result == LoginResult.Success) {
-                self.bevoBucksController!.refresh(loginHandler: loginHandler)
-                self.dineInController!.refresh(loginHandler: loginHandler)
-            } else if (result == LoginResult.IncorrectCredentials) {
-                let alert = UIAlertController(title: "Incorrect Login Credentials", message: "Enter your EID and password in Settings", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Open Settings", style: UIAlertActionStyle.default, handler: { (action) in
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
-                    } else {
-                        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-                    }
-                }))
-                self.present(alert, animated: true, completion: nil)
-            } else if (result == LoginResult.NetworkError) {
-                let alert = UIAlertController(title: "Network Error", message: "UT's servers may be down; please try again later", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            } else if (result == LoginResult.UTWebsiteError) {
-                let alert = UIAlertController(title: "UT Website Error", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+            DispatchQueue.main.async(execute: {
+                if (result == LoginResult.Success) {
+                    self.bevoBucksController!.refresh(loginHandler: loginHandler)
+                    self.dineInController!.refresh(loginHandler: loginHandler)
+                } else if (result == LoginResult.IncorrectCredentials) {
+                    let alert = UIAlertController(title: "Incorrect Login Credentials", message: "Enter your EID and password in Settings", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Open Settings", style: UIAlertActionStyle.default, handler: { (action) in
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!)
+                        } else {
+                            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                        }
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                } else if (result == LoginResult.NetworkError) {
+                    let alert = UIAlertController(title: "Network Error", message: "UT's servers may be down; please try again later", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else if (result == LoginResult.UTWebsiteError) {
+                    let alert = UIAlertController(title: "UT Website Error", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
         })
     }
     
