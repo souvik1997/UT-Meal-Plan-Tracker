@@ -16,6 +16,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var bevoBucksController: TransactionViewController?
     var controllers: [TransactionViewController?] = []
     
+    var username: String?
+    var password: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +36,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             self.scrollView.addSubview(controllers[i]!.view)
         }
         self.viewWillLayoutSubviews()
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.delayedRefresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.logout), name: UserDefaults.didChangeNotification, object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -64,12 +67,23 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func delayedRefresh() {
+        // hack to work around race condition
+        let _ = setTimeout(delay: 3, block: {
+            self.refresh()
+        })
+    }
+    
     func logout() {
         // clear cookies
         let cookieStore = HTTPCookieStorage.shared
         for cookie in cookieStore.cookies ?? [] {
             cookieStore.deleteCookie(cookie)
         }
+        UserDefaults.standard.synchronize()
+        username = UserDefaults.standard.string(forKey: "uteid_eid")
+        password = UserDefaults.standard.string(forKey: "uteid_password")
     }
     
     func promptForCredentials() {
@@ -85,20 +99,17 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func refresh() {
-        UserDefaults.standard.synchronize()
+        self.logout()
+        if (username == nil || username?.characters.count == 0 || password == nil || password?.characters.count == 0) {
+            promptForCredentials()
+            return
+        }
         let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
-        defaults?.synchronize()
-        guard let username = UserDefaults.standard.string(forKey: "uteid_eid"), let password = UserDefaults.standard.string(forKey: "uteid_password") else {
-            promptForCredentials()
-            return
+        if (defaults != nil) {
+            defaults?.set(username, forKey: "uteid_eid")
+            defaults?.set(password, forKey: "uteid_password")
         }
-        defaults?.set(username, forKey: "uteid_eid")
-        defaults?.set(password, forKey: "uteid_password")
-        if (username.characters.count == 0 || password.characters.count == 0) {
-            promptForCredentials()
-            return
-        }
-        let loginHandler = LoginHandler(eid: username, password: password)
+        let loginHandler = LoginHandler(eid: username!, password: password!)
         loginHandler.authGet(url: URL(string: "https://utdirect.utexas.edu/utdirect/index.WBX")!, callback: {(result, data) in
             DispatchQueue.main.async(execute: {
                 if (result == LoginResult.Success) {
@@ -127,6 +138,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         })
     }
     
+    func setTimeout(delay:TimeInterval, block:@escaping ()->Void) -> Timer {
+        return Timer.scheduledTimer(timeInterval: delay, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: false)
+    }
     
     
     
