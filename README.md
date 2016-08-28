@@ -3,8 +3,9 @@
 An iOS app to track UT student dining plan balances
 
 Screenshots:
-[[https://github.com/souvik1997/UT-Meal-Plan-Tracker/blob/master/screenshots/IMG_0450.PNG|alt=octocat]]
 
-[[https://github.com/souvik1997/UT-Meal-Plan-Tracker/blob/master/screenshots/IMG_0451.PNG|alt=octocat]]
+<img src="https://github.com/souvik1997/UT-Meal-Plan-Tracker/raw/master/Screenshots/IMG_0450.PNG" width=400/>
 
-[[https://github.com/souvik1997/UT-Meal-Plan-Tracker/blob/master/screenshots/IMG_0452.PNG|alt=octocat]]
+<img src="https://github.com/souvik1997/UT-Meal-Plan-Tracker/raw/master/Screenshots/IMG_0451.PNG" width=400/>
+
+<img src="https://github.com/souvik1997/UT-Meal-Plan-Tracker/raw/master/Screenshots/IMG_0452.PNG" width=400/>
