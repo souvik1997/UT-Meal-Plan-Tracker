@@ -70,7 +70,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     func delayedRefresh() {
         // hack to work around race condition
-        let _ = setTimeout(delay: 3, block: {
+        let _ = setTimeout(delay: 2, block: {
             self.refresh()
         })
     }
