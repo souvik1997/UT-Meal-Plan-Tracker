@@ -89,7 +89,7 @@ class TransactionViewController: UIViewController, UITableViewDataSource, UITabl
         }
         var data: Array<(x: Float, y: Float)> = []
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM YYYY"
+        dateFormatter.dateFormat = "MMMM d"
         for i in 0..<transactions.transactions.count {
             let transaction = transactions.transactions[i]
             guard let transactionDate = transaction.date, let transactionRemaining = transaction.remaining else {
