@@ -106,6 +106,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "UT Meals"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
