@@ -104,7 +104,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             promptForCredentials()
             return
         }
-        let defaults = UserDefaults.init(suiteName: "group.UT-Meal-Plan-Tracker")
+        let defaults = UserDefaults.init(suiteName: "group.me.souvik.UT-Meal-Plan-Tracker")
         if (defaults != nil) {
             defaults?.set(username, forKey: "uteid_eid")
             defaults?.set(password, forKey: "uteid_password")

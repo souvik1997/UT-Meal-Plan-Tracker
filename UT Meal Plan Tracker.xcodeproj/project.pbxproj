@@ -395,7 +395,7 @@
 				TargetAttributes = {
 					9D0E82A01D62C2D700EFE42D = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = J49BFWP8H6;
+						DevelopmentTeam = QUC4F78HP5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -417,7 +417,7 @@
 					};
 					9D6AD0181D63711D00D307DC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = J49BFWP8H6;
+						DevelopmentTeam = QUC4F78HP5;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -738,13 +738,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker/UT Meal Plan Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J49BFWP8H6;
+				DEVELOPMENT_TEAM = QUC4F78HP5;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meals";
 				PRODUCT_NAME = "UT Meals";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -758,13 +758,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker/UT Meal Plan Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = J49BFWP8H6;
+				DEVELOPMENT_TEAM = QUC4F78HP5;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meals";
 				PRODUCT_NAME = "UT Meals";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,11 +833,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker Widget/UT Meal Plan Tracker Widget.entitlements";
-				DEVELOPMENT_TEAM = J49BFWP8H6;
+				DEVELOPMENT_TEAM = QUC4F78HP5;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meals.UT-Meals-Widget";
 				PRODUCT_NAME = "UT Meals";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -848,11 +848,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "UT Meal Plan Tracker Widget/UT Meal Plan Tracker Widget.entitlements";
-				DEVELOPMENT_TEAM = J49BFWP8H6;
+				DEVELOPMENT_TEAM = QUC4F78HP5;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "UT Meal Plan Tracker Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meal-Plan-Tracker.UT-Meal-Plan-Tracker-Widget";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.souvik.UT-Meals.UT-Meals-Widget";
 				PRODUCT_NAME = "UT Meals";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
