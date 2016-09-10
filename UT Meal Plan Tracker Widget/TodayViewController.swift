@@ -63,7 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         bevoBucksBalanceLabel.isHidden = false
     }
     
-    func widgetPerformUpdate(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(completionHandler: @escaping ((NCUpdateResult) -> Void)) {
         guard let username = defaults?.string(forKey: "uteid_eid"), let password = defaults?.string(forKey: "uteid_password") else {
             self.promptForCredentials(msg: "Enter Credentials In Settings (1)")
             return
