@@ -33,7 +33,7 @@ class TransactionParser {
         
         self.transactions = []
         var latestSeenDate = Date.distantFuture;
-        for i in 0 ..< min(lines.count, 21) {
+        for i in 0 ..< lines.count {
             let line = lines[i]
             let splitStr = line.characters.split(separator: "\t")
             if (i == 0) { // header
@@ -54,7 +54,7 @@ class TransactionParser {
                 numberFormatter.positivePrefix = ""
                 let remaining = numberFormatter.number(from: cleanRemainingStr) as? Decimal
                 let transaction = Transaction(date: date, location: location, amount: amount, remaining: remaining)
-                if (transaction.date != nil && transaction.date!.timeIntervalSince1970 > latestSeenDate.timeIntervalSince1970) {
+                if (transaction.date != nil && transaction.date!.timeIntervalSince1970 >= latestSeenDate.timeIntervalSince1970) {
                     continue;
                 } else {
                     self.transactions.append(transaction)
